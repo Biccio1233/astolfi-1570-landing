@@ -1,0 +1,509 @@
+{
+  "name": "Astolfi 1570 - analisi clienti",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "astolfi1570_proposal",
+        "options": {}
+      },
+      "id": "46fea1be-3bfb-4f0d-abf3-ad2d2c243fc3",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -1984,
+        -128
+      ],
+      "webhookId": "79945e5b-bb49-4534-9f12-fa574969b497"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d4c9b8bd-5b63-401b-947a-59641c2c9ee1",
+              "name": "companyName",
+              "value": "={{ $json.body.companyName }}",
+              "type": "string"
+            },
+            {
+              "id": "52d7521a-a4b4-44c1-a139-8d3baf1f211e",
+              "name": "city",
+              "value": "={{ $json.body.city }}",
+              "type": "string"
+            },
+            {
+              "id": "da9aab24-9247-4c7a-8917-f9c4e599e32b",
+              "name": "sector",
+              "value": "={{ $json.body.sector }}",
+              "type": "string"
+            },
+            {
+              "id": "07950139-45c8-4d35-9e4a-00f59866c6ed",
+              "name": "website",
+              "value": "={{ $json.body.website }}",
+              "type": "string"
+            },
+            {
+              "id": "8031c0eb-551b-4f8f-81d5-7ef3b8e6e20f",
+              "name": "contactName",
+              "value": "={{ $json.body.contactName }}",
+              "type": "string"
+            },
+            {
+              "id": "cc8e7e99-d26b-4c45-90a2-fb251dbee7ea",
+              "name": "contactEmail",
+              "value": "={{ $json.body.contactEmail }}",
+              "type": "string"
+            },
+            {
+              "id": "65aa4fe9-d8f1-451a-95f2-ca032dcb231b",
+              "name": "phone",
+              "value": "={{ $json.body.phone }}",
+              "type": "string"
+            },
+            {
+              "id": "8a5d90e4-e543-4056-80c7-780304682375",
+              "name": "analysisFocus",
+              "value": "={{ $json.body.analysisFocus }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1776,
+        -128
+      ],
+      "id": "871aca43-ae23-41a4-b822-5354ebc26d6c",
+      "name": "Salva Variabili"
+    },
+    {
+      "parameters": {
+        "model": "sonar-deep-research",
+        "messages": {
+          "message": [
+            {
+              "content": "=Rispondi alle seguenti domande riguardo alla persona e alla sua organizzazione:\n\nNome: {{ $json.contactName }}\nEmail: {{ $json.contactEmail }}\nNome organizzazione: {{ $json.companyName }}\n\n1. L’organizzazione ha già realizzato iniziative di raccolta fondi pubbliche? Se sì, quali sono stati i progetti principali e in che anno?\n2. Attraverso quali canali (social network, sito web, newsletter, stampa, eventi) promuovono di solito le loro campagne di fundraising?\n3. Quali messaggi, temi o storytelling ricorrono nelle loro comunicazioni pubbliche relative al fundraising?\n4. Come si posizionano sui social media (Facebook, Instagram, LinkedIn, X, ecc.) in termini di frequenza e tono dei contenuti legati alla raccolta fondi?\n5. Ci sono campagne o iniziative di comunicazione particolarmente degne di nota che potremmo analizzare per comprendere meglio la loro strategia?\n\nFornisci risposte concise ma dettagliate, includendo eventuali link, menzioni o premi ricevuti, e tutto ciò che possa aiutarmi a comprendere il loro approccio al fundraising e alla comunicazione esterna.\n"
+            }
+          ]
+        },
+        "options": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.perplexity",
+      "typeVersion": 1,
+      "position": [
+        -1472,
+        -368
+      ],
+      "id": "cadae00a-d5de-4ee6-8442-f201448c7a90",
+      "name": "Ricerca Lead",
+      "credentials": {
+        "perplexityApi": {
+          "id": "hFjvMjcV2QTn5YbD",
+          "name": "Perplexity account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "sonar-deep-research",
+        "messages": {
+          "message": [
+            {
+              "content": "=Fornisci un’analisi completa della seguente organizzazione.\n\nOrganizzazione: {{ $json.companyName }}\nSettore: {{ $json.sector }}\nCittà: {{ $json.city }}\nSito web: {{ $json.website }}\n\nIncludi la sua missione, i prodotti o servizi principali, il team dirigenziale, la storia dell’organizzazione, le notizie o gli sviluppi recenti e lo storico dei finanziamenti (se applicabile). Metti in evidenza cosa rende l’organizzazione rilevante e le eventuali iniziative strategiche o le sfide che potrebbe dover affrontare."
+            }
+          ]
+        },
+        "options": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.perplexity",
+      "typeVersion": 1,
+      "position": [
+        -1456,
+        112
+      ],
+      "id": "fc569342-f591-4341-a6e2-aad804d361ed",
+      "name": "Ricerca Azienda",
+      "credentials": {
+        "perplexityApi": {
+          "id": "hFjvMjcV2QTn5YbD",
+          "name": "Perplexity account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "O3-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Sei un assistente che analizza le esigenze di fundraising di un ente non profit e prepara un pre‑briefing strategico.\n\nPartendo dalle informazioni fornite dal richiedente, individua:\n• i bisogni principali legati alla raccolta fondi e alla sostenibilità economica (es. diversificazione delle entrate, costruzione della base donatori, digital fundraising);\n• eventuali obiettivi specifici (es. crescita delle donazioni individuali, accesso a bandi/grant, campagne corporate);\n• vincoli e risorse interne che potrebbero influire sulla capacità di fundraising (dimensioni dell’ente, team dedicato, budget);\n• spunti di consulenza mirati e domande da porre per validare queste ipotesi.\n\nDati forniti:\n- Nome organizzazione: {{ $json.companyName }}\n- Settore: {{ $json.sector }}\n- Città: {{ $json.city }}\n- Focus dell’analisi richiesto: {{ $json.analysisFocus }}\n\nSe ritieni necessario, ipotizza anche quali strumenti di fundraising (es. 5×1000, SMS solidale, grant nazionali/europei) potrebbero essere rilevanti per questa realtà.\n\nRestituisci:\n1. Un breve riassunto dettagliato dei bisogni probabili dell’organizzazione e delle opportunità da esplorare, citando fattori interni ed esterni (max 4–5 righe).\n2. Almeno 3–5 domande diagnostiche personalizzate per approfondire la situazione (es. “Qual è l’ammontare raccolto nelle ultime campagne?”, “Avete un database donatori aggiornato?”).\n3. Due o tre aree di consulenza prioritarie che potremmo offrire (es. definizione di una strategia multicanale, formazione del team, implementazione di un CRM per i donatori).\n\nSii chiaro e concreto, usando un linguaggio professionale e adatto al Terzo Settore.\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1504,
+        -128
+      ],
+      "id": "765a0fb6-60f9-46bc-9f04-25d8d219d08e",
+      "name": "Obiettivi, Possibili Domande",
+      "credentials": {
+        "openAiApi": {
+          "id": "5A4UCh1WdtUtalx7",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "624ddf88-af90-4369-9c6f-9ca5eefaed4b",
+              "name": "risultatoLead",
+              "value": "={{ $json.choices[0].message.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1264,
+        -368
+      ],
+      "id": "72411e90-9001-408b-bfce-23e94904f4d5",
+      "name": "Informazioni sul Lead"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0334df7d-3a51-4bef-9aff-e891ed99a2c0",
+              "name": " companyDetails",
+              "value": "={{ $json.choices[0].message.content }}\n",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1248,
+        112
+      ],
+      "id": "e786e894-49cf-4307-911c-a65a23c7b999",
+      "name": "Informazioni sull'azienda"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "da470b1f-5b1c-413d-a808-09c0e49a55f3",
+              "name": "obiettiviCall",
+              "value": "={{ $json.message.content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1152,
+        -128
+      ],
+      "id": "fef6b82e-2c18-418e-8085-75be30acce13",
+      "name": "Obiettivi della chiamata"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -880,
+        -144
+      ],
+      "id": "7cfa4388-7670-4246-a275-99800c44d0c1",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "risultatoLead"
+            },
+            {
+              "fieldToAggregate": "obiettiviCall"
+            },
+            {
+              "fieldToAggregate": " companyDetails"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -672,
+        -128
+      ],
+      "id": "ea1b42ed-eced-45e8-add7-c336e971d734",
+      "name": "Unisci i Risultati"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "o3-mini",
+          "mode": "list",
+          "cachedResultName": "O3-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=# Ruolo\nSei un assistente specializzato in consulenza fundraising per il Terzo Settore che prepara briefing strategici per incontri con organizzazioni non‑profit.\n\n# Obiettivo\nCompila le informazioni in un report di briefing strutturato e orientato all'azione per supportare una proposta di consulenza fundraising. Il report deve essere conciso ma completo (max 2000 caratteri), focalizzato su opportunità concrete di partnership.\n\n# Regole\nIl report deve includere:\n- Profilo dell'organizzazione (missione, progetto principale, leadership, risultati chiave degli ultimi 2 anni)\n- Analisi del potenziale fundraising (strumenti disponibili come Social Bonus, grant precedenti, base donatori)\n- Punti di forza e criticità identificate (narrative potenti vs lacune strategiche)\n- Opportunità immediate di intervento consulenziale (almeno 3 aree prioritarie)\n- 5 domande diagnostiche mirate per validare necessità e costruire fiducia\n- Linguaggio allineato ai valori dell'organizzazione (termini come \"sogno\", \"comunità\", \"rinascita\")\n\n**FORMATO OUTPUT**: Solo tag HTML essenziali <h1>, <h2>, <h3>, <strong>, <ul>, <li>, <p>. Nessun body o metadata.\n\n# Ricerche sull'organizzazione\n{{ $json.risultatoLead[0] }}\n\n# Analisi fundraising e potenziale\n{{ $json.companyDetails[0] }}\n\n# Sintesi delle esigenze e focus dell’analisi\n{{ $json.obiettiviCall[0] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -464,
+        -128
+      ],
+      "id": "787c9bce-d55c-4e06-ad68-7b23501c279a",
+      "name": "Crea Brief",
+      "credentials": {
+        "openAiApi": {
+          "id": "KoRR6dhKo34GgjIy",
+          "name": "OpenAi account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "https://www.dropbox.com/scl/fo/66fgj0nit7v73uqnwd88y/ANvBV4mlefz-L07MlHyd_lM?rlkey=daknl97qbpfwyo3z9hqwwvttz&dl=0"
+      },
+      "type": "n8n-nodes-base.dropbox",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        16
+      ],
+      "id": "a5e157b6-89cf-44e1-94e3-dac8623be574",
+      "name": "Upload a file",
+      "credentials": {
+        "dropboxApi": {
+          "id": "EA70MwVc9a9dXsMc",
+          "name": "Dropbox account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "mail",
+        "fromEmail": "analisi@astolfi1570.it",
+        "fromName": "Fabrizio Palai",
+        "toEmail": "={{ $('Salva Variabili').item.json.contactEmail }}",
+        "subject": "=Analisi {{ $('Salva Variabili').item.json.companyName }}",
+        "contentValue": "={{ $json.message.content }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.sendGrid",
+      "typeVersion": 1,
+      "position": [
+        -64,
+        -288
+      ],
+      "id": "301a6a75-adef-4c40-a8a1-c84db4ef7ed2",
+      "name": "Send an email",
+      "credentials": {
+        "sendGridApi": {
+          "id": "y9PP0rRlO2PdG9vS",
+          "name": "SendGrid account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Salva Variabili": {
+      "main": [
+        [
+          {
+            "node": "Ricerca Azienda",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Ricerca Lead",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Obiettivi, Possibili Domande",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ricerca Azienda": {
+      "main": [
+        [
+          {
+            "node": "Informazioni sull'azienda",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ricerca Lead": {
+      "main": [
+        [
+          {
+            "node": "Informazioni sul Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obiettivi, Possibili Domande": {
+      "main": [
+        [
+          {
+            "node": "Obiettivi della chiamata",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Informazioni sul Lead": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obiettivi della chiamata": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Informazioni sull'azienda": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Unisci i Risultati",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Unisci i Risultati": {
+      "main": [
+        [
+          {
+            "node": "Crea Brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crea Brief": {
+      "main": [
+        [
+          {
+            "node": "Upload a file",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send an email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Salva Variabili",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "de6a5ec0-46cc-4383-864b-63fd925f940c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2ed67b8c8051c21b1960acab896d0f81147c0e4930d16d47bf73d9f87a3bf830"
+  },
+  "id": "2ghS6VQjOBsSfvHk",
+  "tags": []
+}

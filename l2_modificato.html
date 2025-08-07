@@ -3,28 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Astolfi 1570 - Consulenza strategica per il fundraising del terzo settore. Analisi gratuita per organizzazioni non profit.">
-    <meta name="keywords" content="fundraising, terzo settore, non profit, consulenza, analisi strategica, donazioni, 5x1000">
-    <meta name="author" content="Astolfi 1570">
-    <meta property="og:title" content="Astolfi 1570 - Analisi Strategica Fundraising">
-    <meta property="og:description" content="Richiedi un'analisi gratuita per scoprire le opportunità di fundraising per la tua organizzazione.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://astolfi1570.it">
-    <meta property="og:image" content="https://astolfi1570.it/images/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Astolfi 1570 - Analisi Strategica Fundraising">
-    <meta name="twitter:description" content="Consulenza strategica per il fundraising del terzo settore">
-    <title>Astolfi 1570 - Analisi Strategica Fundraising | Consulenza Non Profit</title>
-    
-    <!-- Tailwind CSS -->
+    <title>Astolfi 1570 - Analisi Strategica Fundraising</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts with preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Inline styles for better visual appeal -->
     <style>
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -192,35 +173,19 @@
             animation-delay: -2s;
         }
     </style>
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Astolfi 1570",
-      "description": "Consulenza strategica per il fundraising del terzo settore",
-      "url": "https://astolfi1570.it",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "info@astolfi1570.it",
-        "contactType": "customer service"
-      }
-    }
-    </script>
 </head>
 <body class="font-inter bg-gray-50 min-h-screen p-4 md:p-8">
-    <main role="main" class="max-w-2xl mx-auto bg-white rounded-2xl card-shadow overflow-hidden animate-fade-in">
+    <div class="max-w-2xl mx-auto bg-white rounded-2xl card-shadow overflow-hidden animate-fade-in">
         <!-- Header Section -->
-        <header class="logo-gradient px-8 py-12 text-center relative overflow-hidden">
-            <div class="absolute inset-0" aria-hidden="true">
+        <div class="logo-gradient px-8 py-12 text-center relative overflow-hidden">
+            <div class="absolute inset-0">
                 <div class="particle" style="top: 20%; left: 10%;"></div>
                 <div class="particle" style="top: 60%; left: 80%;"></div>
                 <div class="particle" style="top: 80%; left: 20%;"></div>
                 <div class="particle" style="top: 30%; left: 70%;"></div>
             </div>
             <div class="relative">
-                <a href="https://astolfi1570.it" class="mx-auto inline-block" aria-label="Astolfi 1570 Homepage">
+                <a href="https://astolfi1570.it" class="mx-auto inline-block">
                     <div class="flex items-center space-x-6">
                         <div class="relative w-28 h-28 flex-shrink-0">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-br from-orange-400 via-orange-500 to-blue-900 transform rotate-45 animate-pulse-slow"></div>
@@ -229,50 +194,44 @@
                             </div>
                         </div>
                         <div>
-                            <h1 class="text-white text-4xl md:text-5xl font-bold tracking-tight">Astolfi 1570</h1>
+                            <span class="text-white text-4xl md:text-5xl font-bold tracking-tight">Astolfi 1570</span>
                             <p class="mt-1 text-white/90 text-xl md:text-2xl font-light italic">Analisi Strategica Fundraising</p>
                         </div>
                     </div>
                 </a>
             </div>
-        </header>
+        </div>
         
         <!-- Form Section -->
-        <section class="px-8 py-10">
+        <div class="px-8 py-10">
             <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-6 text-white mb-8 transform hover:scale-[1.02] transition-transform duration-300">
                 <h2 class="text-2xl md:text-3xl font-bold mb-3">Analisi Strategica Fundraising</h2>
                 <p class="text-blue-100 leading-relaxed text-lg">Prenota la tua consulenza gratuita</p>
             </div>
             
-            <form id="fundraisingForm" class="space-y-6" novalidate aria-label="Modulo richiesta analisi">
+            <form id="fundraisingForm" class="space-y-6">
                 <!-- Organization Info -->
-                <fieldset class="space-y-2">
-                    <legend class="text-blue-800 font-bold text-xl mb-4 flex items-center">
+                <div class="space-y-2">
+                    <h3 class="text-blue-800 font-bold text-xl mb-4 flex items-center">
                         <span class="h-1 w-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mr-3"></span>
                         Informazioni sull'Organizzazione
-                    </legend>
+                    </h3>
                     
                     <div>
-                        <label for="companyName" class="block text-sm font-semibold text-blue-800 mb-2">
-                            Nome Organizzazione <span class="text-orange-500" aria-label="campo obbligatorio">*</span>
-                        </label>
+                        <label for="companyName" class="block text-sm font-semibold text-blue-800 mb-2">Nome Organizzazione <span class="text-orange-500">*</span></label>
                         <input type="text" id="companyName" name="companyName" required
-                               aria-required="true" aria-describedby="companyNameError"
                                class="mt-1 block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 input-focus"
                                placeholder="Es. Associazione L'Albero di Zaccheo">
-                        <p class="mt-1 text-sm text-red-600 hidden" id="companyNameError" role="alert">Inserisci il nome dell'organizzazione</p>
+                        <p class="mt-1 text-sm text-red-600 hidden" id="companyNameError">Inserisci il nome dell'organizzazione</p>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="city" class="block text-sm font-semibold text-blue-800 mb-2">
-                                Città <span class="text-orange-500" aria-label="campo obbligatorio">*</span>
-                            </label>
+                            <label for="city" class="block text-sm font-semibold text-blue-800 mb-2">Città <span class="text-orange-500">*</span></label>
                             <input type="text" id="city" name="city" required
-                                   aria-required="true" aria-describedby="cityError"
                                    class="mt-1 block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 input-focus"
                                    placeholder="Es. Aosta">
-                            <p class="mt-1 text-sm text-red-600 hidden" id="cityError" role="alert">Inserisci la città</p>
+                            <p class="mt-1 text-sm text-red-600 hidden" id="cityError">Inserisci la città</p>
                         </div>
                         <div>
                             <label for="sector" class="block text-sm font-semibold text-blue-800 mb-2">Settore</label>
@@ -296,14 +255,14 @@
                                class="mt-1 block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 input-focus"
                                placeholder="https://">
                     </div>
-                </fieldset>
+                </div>
                 
                 <!-- Contact Info -->
-                <fieldset class="space-y-2">
-                    <legend class="text-blue-800 font-bold text-xl mb-4 flex items-center">
+                <div class="space-y-2">
+                    <h3 class="text-blue-800 font-bold text-xl mb-4 flex items-center">
                         <span class="h-1 w-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mr-3"></span>
                         Informazioni di Contatto
-                    </legend>
+                    </h3>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
@@ -313,14 +272,11 @@
                                    placeholder="Es. Michela Colombarini">
                         </div>
                         <div>
-                            <label for="contactEmail" class="block text-sm font-semibold text-blue-800 mb-2">
-                                Email <span class="text-orange-500" aria-label="campo obbligatorio">*</span>
-                            </label>
+                            <label for="contactEmail" class="block text-sm font-semibold text-blue-800 mb-2">Email <span class="text-orange-500">*</span></label>
                             <input type="email" id="contactEmail" name="contactEmail" required
-                                   aria-required="true" aria-describedby="emailError"
                                    class="mt-1 block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 input-focus"
                                    placeholder="tuo@email.com">
-                            <p class="mt-1 text-sm text-red-600 hidden" id="emailError" role="alert">Inserisci un'email valida</p>
+                            <p class="mt-1 text-sm text-red-600 hidden" id="emailError">Inserisci un'email valida</p>
                         </div>
                     </div>
                     
@@ -330,14 +286,14 @@
                                class="mt-1 block w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 input-focus"
                                placeholder="Es. 335 1234567">
                     </div>
-                </fieldset>
+                </div>
                 
                 <!-- Analysis Details -->
-                <fieldset class="space-y-2">
-                    <legend class="text-blue-800 font-bold text-xl mb-4 flex items-center">
+                <div class="space-y-2">
+                    <h3 class="text-blue-800 font-bold text-xl mb-4 flex items-center">
                         <span class="h-1 w-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full mr-3"></span>
                         Dettagli dell'Analisi
-                    </legend>
+                    </h3>
                     
                     <div>
                         <label for="analysisFocus" class="block text-sm font-semibold text-blue-800 mb-2">Focus Specifico (opzionale)</label>
@@ -349,38 +305,35 @@
                     <div class="mt-4">
                         <label class="inline-flex items-start">
                             <input type="checkbox" id="privacy" name="privacy" required
-                                   aria-required="true" aria-describedby="privacyError"
                                    class="form-checkbox mt-1">
                             <span class="ml-3 text-sm text-gray-700 leading-relaxed">
                                 Acconsento al trattamento dei miei dati personali ai sensi del GDPR. 
                                 <a href="https://astolfi1570.it/privacy" class="text-blue-600 hover:underline font-medium">Leggi l'informativa completa</a>
                             </span>
                         </label>
-                        <p class="mt-1 text-sm text-red-600 hidden" id="privacyError" role="alert">Accetta l'informativa sulla privacy per continuare</p>
+                        <p class="mt-1 text-sm text-red-600 hidden" id="privacyError">Accetta l'informativa sulla privacy per continuare</p>
                     </div>
-                </fieldset>
+                </div>
                 
                 <!-- Submit Button -->
-                <button type="submit" id="submitBtn" 
-                        class="w-full btn-gradient text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex justify-center items-center text-lg"
-                        aria-label="Invia richiesta di analisi gratuita">
+                <button type="submit" id="submitBtn" class="w-full btn-gradient text-white font-bold py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex justify-center items-center text-lg">
                     <span id="buttonText" class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                         Richiedi Analisi Gratuita
                     </span>
                     <div id="loadingSpinner" class="hidden items-center space-x-2">
-                        <div class="spinner" aria-label="Caricamento"></div>
+                        <div class="spinner"></div>
                         <span>Invio in corso...</span>
                     </div>
                 </button>
             </form>
             
             <!-- Success Message -->
-            <div id="successMessage" class="mt-8 bg-gradient-to-r from-green-50 to-green-100 border-l-4 border-green-500 p-6 rounded-xl hidden animate-fade-in" role="alert">
+            <div id="successMessage" class="mt-8 bg-gradient-to-r from-green-50 to-green-100 border-l-4 border-green-500 p-6 rounded-xl hidden animate-fade-in">
                 <div class="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-500 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <div class="ml-4">
@@ -393,27 +346,138 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Error Message -->
-            <div id="errorMessage" class="mt-8 bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-500 p-6 rounded-xl hidden animate-fade-in" role="alert">
-                <div class="flex items-start">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-500 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <div class="ml-4">
-                        <h3 class="text-red-800 font-bold text-xl">Errore nell'invio</h3>
-                        <p class="mt-2 text-red-700 leading-relaxed">
-                            Si è verificato un errore durante l'invio. Riprova tra qualche minuto o contattaci direttamente a 
-                            <a href="mailto:info@astolfi1570.it" class="font-bold text-blue-600 hover:underline">info@astolfi1570.it</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    </div>
     
-    <!-- External JavaScript -->
-    <script src="astolfi-config.js"></script>
-    <script src="astolfi-form.js"></script>
+    <script>
+        // Simple form validation and submission
+        document.getElementById('fundraisingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset errors
+            document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('successMessage').classList.add('hidden');
+            
+            let isValid = true;
+            
+            // Validate required fields
+            const companyName = document.getElementById('companyName');
+            if (!companyName.value.trim()) {
+                document.getElementById('companyNameError').classList.remove('hidden');
+                companyName.focus();
+                isValid = false;
+            }
+            
+            const city = document.getElementById('city');
+            if (!city.value.trim()) {
+                document.getElementById('cityError').classList.remove('hidden');
+                if (isValid) city.focus();
+                isValid = false;
+            }
+            
+            const email = document.getElementById('contactEmail');
+            if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                document.getElementById('emailError').classList.remove('hidden');
+                if (isValid) email.focus();
+                isValid = false;
+            }
+            
+            const privacy = document.getElementById('privacy');
+            if (!privacy.checked) {
+                document.getElementById('privacyError').classList.remove('hidden');
+                if (isValid) privacy.focus();
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Show loading state
+            document.getElementById('buttonText').classList.add('hidden');
+            document.getElementById('loadingSpinner').classList.remove('hidden');
+            
+            // Simulate form submission (replace with actual fetch in production)
+            fetch('http://37.187.150.143:5678/webhook-test/astolfi1570_proposal', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    companyName: companyName.value.trim(),
+    city: city.value.trim(),
+    sector: document.getElementById('sector').value,
+    website: document.getElementById('website').value.trim(),
+    contactName: document.getElementById('contactName').value.trim(),
+    contactEmail: email.value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    analysisFocus: document.getElementById('analysisFocus').value.trim()
+  })
+})
+.then(response => {
+  if (response.ok) {
+    document.getElementById('buttonText').classList.remove('hidden');
+    document.getElementById('loadingSpinner').classList.add('hidden');
+    document.getElementById('successMessage').classList.remove('hidden');
+    document.getElementById('fundraisingForm').reset();
+    document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else {
+    alert("Errore durante l'invio del form. Riprova più tardi.");
+  }
+})
+.catch((error) => {
+  console.error('Errore durante l’invio del form:', error);
+  alert("Errore tecnico. Contatta il supporto.");
+});
+                // Hide loading state
+                document.getElementById('buttonText').classList.remove('hidden');
+                document.getElementById('loadingSpinner').classList.add('hidden');
+                
+                // Show success message
+                document.getElementById('successMessage').classList.remove('hidden');
+                document.getElementById('fundraisingForm').reset();
+                
+                // Scroll to success message
+                document.getElementById('successMessage').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+                
+                // Here you would normally send the data to your backend
+                // Example using fetch:
+                /*
+                fetch('https://your-api-endpoint.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        companyName: companyName.value.trim(),
+                        city: city.value.trim(),
+                        // ... other fields
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle response
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+                */
+            }, 1500);
+        });
+        
+        // Remove error when user types
+        document.querySelectorAll('input, textarea, select').forEach(input => {
+            input.addEventListener('input', () => {
+                const errorId = input.id + 'Error';
+                if (document.getElementById(errorId)) {
+                    document.getElementById(errorId).classList.add('hidden');
+                }
+            });
+        });
+        
+        document.getElementById('privacy').addEventListener('change', () => {
+            document.getElementById('privacyError').classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
